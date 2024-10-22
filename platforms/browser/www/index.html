@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <!-- Jquery-->
+        <script src="js/assets/jquery-3.7.1.min.js"></script>
+        <!-- JqueryUI-->
+        <link rel="stylesheet" href="js/assets/jquery-ui-1.14.0.custom/jquery-ui.min.css">
+        <script src="js/assets/jquery-ui-1.14.0.custom/jquery-ui.min.js"></script>
+        <!-- CustomCss-->
+        <link rel="stylesheet" href="css/custom.css">
+        <title>Exercici llista</title>
+    </head>
+    <body>
+        <div>
+            <h1>Utilitzant JQuery</h1>
+        </div>
+        <div class="llista">
+            <p>Tasques:</p>
+            <div id="tasques">
+    
+            </div>
+            <div class="add_button">
+                <button id="add_task">Afegir tasca</button>
+            </div>
+            <div id="dialog" title="Afegir tasca">
+                <p>Quin nom vols afegir a la tasca: </p>
+                <input type="text" name="task_name" id="task_name">
+            </div>
+    
+        </div>
+
+        <script src="cordova.js"></script>
+        <!-- Custom script -->
+        <script src="js/index.js"></script>
+    </body>
+</html>

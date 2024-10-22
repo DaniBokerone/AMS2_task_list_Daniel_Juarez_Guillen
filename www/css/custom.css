@@ -1,0 +1,12 @@
+.list_element{
+    display: flex;
+    align-items: center
+}
+
+.list_element div{
+    margin-left: 15px;
+}
+
+.list_element div .edit-task{
+    margin-left: 5px;
+}
