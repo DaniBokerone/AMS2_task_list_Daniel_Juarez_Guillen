@@ -10,3 +10,7 @@
 .list_element div .edit-task{
     margin-left: 5px;
 }
+
+#editTaskName{
+    font-weight: bold;
+}
