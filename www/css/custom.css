@@ -1,7 +1,4 @@
-.list_element{
-    display: flex;
-    align-items: center
-}
+
 
 .list_element div{
     margin-left: 15px;
@@ -11,6 +8,15 @@
     margin-left: 5px;
 }
 
+.list_element div .delete-task{
+    margin-left: 5px;
+}
+
 #editTaskName{
     font-weight: bold;
+}
+
+.add_button{
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

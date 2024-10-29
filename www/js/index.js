@@ -4,6 +4,12 @@ function onDeviceReady() {
     let id = 0; 
     let tasks = loadTasksFromLocalStorage(); 
 
+    $("#tasques").accordion({
+        collapsible: true,
+        active: false,
+        heightStyle: "content"
+    });
+
     $("#dialog").dialog({
         autoOpen: false,
         modal: true,
@@ -75,15 +81,15 @@ function onDeviceReady() {
     function generateListElement(taskId,texte) {
         
         var buttons = generateButtonList(taskId);
-        var task = "<div id='task_id_" + taskId + "' class='list_element'><p class='text'>" + texte + "</p>" + buttons + "</div>";
+        var task = "<h3><span class='task_title task_id_"+ taskId+"'>" + texte + "</span></h3><div id='task_id_" + taskId + "' class='list_element'>" + buttons + "</div>";
 
         $('#tasques').append(task);
+        $("#tasques").accordion("refresh");
     }
 
     //Actualitzar elemets a la llista
-    function updateListElement(taskId,texte){
-
-        $('#task_id_' + taskId +' .text').html(texte);    
+    function updateListElement(taskId,texte) {
+        $('#task_id_' + taskId).parent().find('.task_title.task_id_'+taskId).html(texte);
     }
 
     //Generar botons per la llista
@@ -98,7 +104,8 @@ function onDeviceReady() {
     //Borrar tasca
     $(document).on('click', '.delete-task', function () {
         const taskId = $(this).data('task-id'); 
-        $('#task_id_' + taskId).remove(); 
+        $('#task_id_' + taskId).remove();
+        $('span.task_id_' + taskId).parent().remove(); 
 
         //Borrar de LocalStorage
         tasks = tasks.filter(t => t.id !== taskId);
@@ -109,7 +116,8 @@ function onDeviceReady() {
     $(document).on('click', '.edit-task', function () {
         const taskId = $(this).data('task-id'); 
 
-        origText = $('#task_id_' + taskId +' .text').html(); 
+        origText = $('#task_id_' + taskId).parent().find('.task_title.task_id_'+taskId).html(); 
+        console.log(origText)
         $("#editTaskName").html(origText);   
 
         $("#editDialog").data("taskId",taskId).dialog("open");
